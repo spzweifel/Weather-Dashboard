@@ -3,14 +3,38 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--loads fonts from the API to the CSS. change the fonts here or get rid of this entirely-->
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <!--loads the api for the weater map-->
+    <link href="https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={e4e814700cd27d28a68e0d1dc9b545c6}" rel="stylesheet">   
+<!--include a link to bootstrap-->
+    <!--should give access to jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <!--gives access to css-->
     <link rel="stylesheet" href="./assets/style.css">
     <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <main>
+    <header class="hero">
+        <h1 class="title"> Weather Dashboard</h1>
+    </header>
 
+    <main>
+        <div>
+            <div class="card">
+                <!--why does the text-uppercase not work? Does it have to do with the APIs?-->
+                <h2 class="card-header text-uppercase">Search For a City:</h2>
+                <form id="user-form" class="card-body">
+                    <input name="city" id="city" type="text" class="form-input" />
+                </form>
+                <button type="submit" class="btn">Search</button>
+            </div>
+  
+
+        </div>
     </main>
     <script src="./script.js"></script>
 </body>
