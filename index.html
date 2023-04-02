@@ -4,14 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--loads fonts from the API to the CSS. change the fonts here or get rid of this entirely-->
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-    <!--loads the api for the weater map-->
-    <link href="https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={e4e814700cd27d28a68e0d1dc9b545c6}" rel="stylesheet">   
-<!--include a link to bootstrap-->
-    <!--should give access to jquery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+    
     <!--gives access to css-->
     <link rel="stylesheet" href="./assets/style.css">
     <title>Weather Dashboard</title>
@@ -23,19 +17,28 @@
     </header>
 
     <main>
-        <div>
-            <div class="card">
-                <!--why does the text-uppercase not work? Does it have to do with the APIs?-->
-                <h2 class="card-header text-uppercase">Search For a City:</h2>
-                <form id="user-form" class="card-body">
-                    <input name="city" id="city" type="text" class="form-input" />
-                </form>
-                <button type="submit" class="btn">Search</button>
-            </div>
-  
-
+        <div class="card">
+            <h2 class="card-header">Search For a City:</h2>
+            <form id="user-form" class="card-body">
+                <input placeholder="Search City" id="cityname" type="text" autofocus="true" class="form-input" />
+            </form>
+                <button type="submit" class="btn">Search</button>  
         </div>
+    
+    <div class="box"></div>
+    <div class="forecast-text">
+        <h3 class="forecast">5 Day Forecast <span id="forecast-display"></span></h3>
+        <div class="card">
+            <!--the date should go here and should update by day-->
+            <div id="forecast-container" class="forecast-group"></div>
+    </div>
+
+
     </main>
-    <script src="./script.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
+    crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.7/dayjs.min.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 </html>

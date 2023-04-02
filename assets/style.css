@@ -16,3 +16,23 @@
 }
 
 /*figure out how to put a box where the pulled data can be*/
+/*done*/
+.box {
+    display: flex;
+    width: 75%;
+    height: 250px;
+    border: 2px solid;
+    padding: 3px;
+    margin: -125px 350px 400px;
+}
+
+.forecast-text {
+    margin-top: -400px;
+    margin-left: 350px;
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+#cityname {
+    width: 293px;
+}
