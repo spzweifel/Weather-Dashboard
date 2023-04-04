@@ -36,3 +36,38 @@
 #cityname {
     width: 293px;
 }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.day-box1 {
+    border: 1px solid;
+    height: 300px;
+    width: 250px;
+}
+
+.day-box2 {
+    border: 1px solid;
+    height: 300px;
+    width: 250px;
+}
+
+.day-box3 {
+    border: 1px solid;
+    height: 300px;
+    width: 250px;
+}
+
+.day-box4 {
+    border: 1px solid;
+    height: 300px;
+    width: 250px;
+}
+
+.day-box5 {
+    border: 1px solid;
+    height: 300px;
+    width: 250px;
+}
