@@ -27,7 +27,7 @@ var apiKey = "4a46a814423b539ffe06ab6c3ce3d0c7"
 function getApi(event) {
   event.preventDefault();
 
-  var city = cityInput.value;
+  var city = cityInput.val();
   console.log(city)
   var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
@@ -36,11 +36,32 @@ function getApi(event) {
       return response.json();
     })
     .then(function (data) {
-        console.log(data);
+      console.log(data);
+      var geoLon = data.coord.lon
+      var geoLat = data.coord.lat
+      console.log(geoLon)
+      console.log(geoLat)
 
-        var currentCard = `
-        <h4 class="">temp: ${data.main.temp}</h4>
-                <p>hum: </p>`
+
+
+
+
+//use data.lon and data.lat to get the lon and lat of the selected city and the use that geo data in the fetch request
+
+//I'm able to display the lat and lon of the desired city. Now I need to get the weather data for that. Maybe using the second fetch here.
+
+
+
+
+
+
+
+
+        // var weatherData = data.data
+
+        // var currentCard = `
+        // <p class="">temp: ${data.main.temp}</p>
+        //         <p>hum: </p>`
 
 
     //   var title = data.city.name + " " + dayjs().format("MM/DD/YYYY");
@@ -67,25 +88,15 @@ function getApi(event) {
 }
 
 //why is this not reading in the console?
-search.addEventListener("click", getApi);
+search.on("click", getApi);
 
 
 
 
-function cityRender() {
+// function cityRender() {
     
-}
-cityRender();
-
-// var formSubmitHandler = function (event) {
-//     event.preventDefault()
-
-//     var cityname = cityInput.value.trim()
-
-//     if (cityname) {
-//         getForecastData(cityname)
-//     }
 // }
+// cityRender();
 
 today.eq(0).text(dayjs().format("MM/DD/YYYY"));
 day1.eq(0).text(dayjs().add(1, "day").format("MM/DD/YYYY"));
