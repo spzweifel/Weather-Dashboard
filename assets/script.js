@@ -42,9 +42,20 @@ function getApi(event) {
       console.log(geoLon)
       console.log(geoLat)
 
+      if (cityInput.val() != "") {
+        var cityArray = JSON.parse(localStorage.getItem("city")) || []
+
+        localStorage.setItem("city", JSON.stringify(cityArray))
+        displayForecast(geoLat, geoLon)
+      }
 
 
+function displayForecast(geoLat, geoLon) {
+  
+}
 
+
+//api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
 //use data.lon and data.lat to get the lon and lat of the selected city and the use that geo data in the fetch request
 
@@ -52,37 +63,12 @@ function getApi(event) {
 
 
 
+//in get fetch api, only want the getapi function for the click event. that function should call another fucntion to get the city weather. then in that function, can have one for display weather that accepts a paraneter for city name. in get api, take everything form line 30 and all the way to line 51. that fetch and 31 to 34. move them all to that function. in the getapi, prevent default and then call the git weather function and pass the city because the get weather function will get the city from two different situations. once from the search, value from input. when city name is clicked, get the value from a data attribute from the data that is clicked. when get weather is called, it needs to accept the city name. once is the input and the other is the actual click. will pass to cityinput.val from the get weather function. won't need the variable. can define a parameter of city name in the function just like in line 31. code will still use that parameter. 
 
 
 
 
-
-        // var weatherData = data.data
-
-        // var currentCard = `
-        // <p class="">temp: ${data.main.temp}</p>
-        //         <p>hum: </p>`
-
-
-    //   var title = data.city.name + " " + dayjs().format("MM/DD/YYYY");
-    //   today.children().eq(0).text(title);
-    //   var cityList = data.list;
-
-    //   $("img").remove();
-
-    //   for (var i = 0; i < cityList.length; i++) {
-    //     var main = cityList[i].main;
-    //     var temp = Math.ceil((9 / 5) * (main.temp - 273) + 32);
-    //     var humidity = main.humidity + "%";
-    //     var windSpeed = cityList[i].wind.speed + "mph";
-    //     var icon = cityList[i].weather[0].icon;
-
-    //     var img = $("<img>").attr(
-    //       "src",
-    //       "https://openweathermap.org/img/wn" + icon + "@2x.png"
-    //     );
-    //   }
-
+  
       
     });
 }
