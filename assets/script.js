@@ -24,10 +24,10 @@ var apiKey = "4a46a814423b539ffe06ab6c3ce3d0c7"
 
 //addeventlistener for the city and console logs it
 
-function getApi(event) {
-  event.preventDefault();
+function getApi(city) {
 
-  var city = cityInput.val();
+
+ 
   console.log(city)
   var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
@@ -36,22 +36,52 @@ function getApi(event) {
       return response.json();
     })
     .then(function (data) {
+      var htmlCode = `
+      <h2>City: ${city}</h2>
+      <h3>Temperature: ${data.main.temp}</h3>
+      <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" />
+      <p>Wind: ${data.wind.speed}</p>
+      <p>Humidity: ${data.main.humidity}</p>
+      `
+      
+      $(".box").html(htmlCode)
+
       console.log(data);
       var geoLon = data.coord.lon
       var geoLat = data.coord.lat
       console.log(geoLon)
       console.log(geoLat)
 
-      if (cityInput.val() != "") {
-        var cityArray = JSON.parse(localStorage.getItem("city")) || []
+    
+    })
+  }
 
-        localStorage.setItem("city", JSON.stringify(cityArray))
-        displayForecast(geoLat, geoLon)
+function display5Forecast(city) {
+  // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
+
+  var requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
+
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data)
+      var htmlCode = ""
+      var j  = 1
+      for (i = 0; i < data.list.length;i=i+8){
+       htmlCode = `<div class="fiveday-box"
+       <h2>${dayjs().add(j, "day").format("MM/DD/YYYY")}</h2>
+      <p>Temperature: ${data.list[i].main.temp}</p>
+      <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" />
+      <p>Wind: ${data.list[i].wind.speed}</p>
+      <p>Humidity: ${data.list[i].main.humidity}</p>
+      </div>
+      `
+        $(`.day-box${j}`).html(htmlCode)
+        j++
       }
-
-
-function displayForecast(geoLat, geoLon) {
-  
+})
 }
 
 
@@ -70,27 +100,45 @@ function displayForecast(geoLat, geoLon) {
 
   
       
-    });
-}
+
 
 //why is this not reading in the console?
-search.on("click", getApi);
+search.on("click",function(event){
+  event.preventDefault()
+  var city = cityInput.val();
+  getApi(city)
+  if (cityInput.val() != "") {
+    var cityArray = JSON.parse(localStorage.getItem("city")) || []
+    cityArray.push(city)
+    localStorage.setItem("city", JSON.stringify(cityArray))
+  }
+  display5Forecast(city)
+  cityRender();
+} 
+);
 
 
 
 
-// function cityRender() {
-    
-// }
-// cityRender();
+function cityRender() {
+  var cityArray = JSON.parse(localStorage.getItem("city")) || []
+  var htmlCode = ""
+  for (i = 0; i < cityArray.length;i=i+1){
+    htmlCode += `<button class="btn previousSearch"> ${cityArray[i]} </button>`
+  }
+  $("#saved").html(htmlCode)
+}
+cityRender();
 
 today.eq(0).text(dayjs().format("MM/DD/YYYY"));
-day1.eq(0).text(dayjs().add(1, "day").format("MM/DD/YYYY"));
-day2.eq(0).text(dayjs().add(2, "day").format("MM/DD/YYYY"));
-day3.eq(0).text(dayjs().add(3, "day").format("MM/DD/YYYY"));
-day4.eq(0).text(dayjs().add(4, "day").format("MM/DD/YYYY"));
-day5.eq(0).text(dayjs().add(5, "day").format("MM/DD/YYYY"));
 
+$("#saved").on("click",".previousSearch",function(){
+  event.preventDefault()
+  var city = $(this).text()
+  console.log(city)
+  getApi(city)
+  display5Forecast(city)
+})
 
 
 })

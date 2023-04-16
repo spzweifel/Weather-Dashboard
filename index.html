@@ -1,77 +1,90 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    
     <!--gives access to css-->
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css" />
     <title>Weather Dashboard</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="hero">
-        <h1 class="title"> Weather Dashboard</h1>
+      <h1 class="title">Weather Dashboard</h1>
     </header>
 
     <main>
-        <div class="card">
-            <h2 class="card-header">Search For a City:</h2>
-            <form id="user-form">
-                <input placeholder="Search City" id="cityname" type="text" autofocus="true" class="form-input" />
-            </form>
-                <button type="submit" class="btn">Search</button>  
+      <div class="card">
+        <h2 class="card-header">Search For a City:</h2>
+        <form id="user-form">
+          <input
+            placeholder="Search City"
+            id="cityname"
+            type="text"
+            autofocus="true"
+            class="form-input"
+          />
+        </form>
+        <button type="submit" class="btn">Search</button>
+
+        <br />
+        <br />
+        <hr />
+        <div id="saved"></div>
+      </div>
+      <details>
+        <div class="box">
+          <h4>Temp:</h4>
+          <h4>Hum:</h4>
+          <h4>Wind:</h4>
         </div>
-    
-    <div class="box">
-        <h4>Temp: </h4>
-        <h4>Hum: </h4>
-        <h4>Wind: </h4>
-    </div>
-    <div class="forecast-text">
-        <h3 class="forecast">5 Day Forecast <span id="forecast-display"></span></h3>
-        <div class="card">
-            <!--the date should go here and should update by day-->
-            <div id="forecast-container" class="forecast-group">
-            </div>
-    </div>
-    <div class="container">
-        <div class="day-box1">
-            <p class="">Temp: </p>
-            <p>Hum: </p>
-            <p>Wind: </p>
+        <div class="forecast-text">
+          <h3 class="forecast">
+            5 Day Forecast <span id="forecast-display"></span>
+          </h3>
+
+          <!--the date should go here and should update by day-->
+          <div id="forecast-container" class="forecast-group"></div>
         </div>
-        <div class="day-box2">
-            <p class="">Temp: </p>
-            <p>Hum: </p>
-            <p>Wind: </p>
+        <div class="container">
+          <div class="day-box1">
+            <p class="">Temp:</p>
+            <p>Hum:</p>
+            <p>Wind:</p>
+          </div>
+          <div class="day-box2">
+            <p class="">Temp:</p>
+            <p>Hum:</p>
+            <p>Wind:</p>
+          </div>
+          <div class="day-box3">
+            <p class="">Temp:</p>
+            <p>Hum:</p>
+            <p>Wind:</p>
+          </div>
+
+          <div class="day-box4">
+            <p class="">Temp:</p>
+            <p>Hum:</p>
+            <p>Wind:</p>
+          </div>
+          <div class="day-box5">
+            <p class="">Temp:</p>
+            <p>Hum:</p>
+            <p>Wind:</p>
+          </div>
         </div>
-        <div class="day-box3">
-            <p class="">Temp: </p>
-            <p>Hum: </p>
-            <p>Wind: </p>
-        </div>
-        <div class="day-box4">
-            <p class="">Temp: </p>
-            <p>Hum: </p>
-            <p>Wind: </p>
-        </div>
-        <div class="day-box5">
-            <p class="">Temp: </p>
-            <p>Hum: </p>
-            <p>Wind: </p>
-        </div>
-    </div>
+      </details>
     </main>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script
-    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-    crossorigin="anonymous"></script>
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/script.js"></script>
-</body>
+  </body>
 </html>

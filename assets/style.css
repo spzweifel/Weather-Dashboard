@@ -2,7 +2,17 @@
     background-color: rgba(19, 19, 219, 0.904);
     padding: .25px;
 }
-
+main{
+    display: flex;
+    gap:1;
+}
+#saved{
+    display: flex;
+    flex-direction: column;
+}
+#saved button{
+    width: 90%;
+}
 .title {
     flex: auto;
     text-align: center;
@@ -23,14 +33,14 @@
     height: 250px;
     border: 2px solid;
     padding: 3px;
-    margin: -125px 350px 400px;
+    margin: -225px 350px 400px;
 }
 
 .forecast-text {
     margin-top: -400px;
     margin-left: 350px;
     text-decoration: underline;
-    font-size: 30px;
+    /* font-size: 30px; */
 }
 
 #cityname {
@@ -39,10 +49,11 @@
 
 .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.day-box1 {
+/* .day-box1 {
     border: 1px solid;
     height: 300px;
     width: 250px;
@@ -70,4 +81,15 @@
     border: 1px solid;
     height: 300px;
     width: 250px;
+} */
+
+.fiveday-box{
+    border: 1px solid blue;
+    width: 15vw;
+    height: 35vh;
+    background-color: aquamarine;
+}
+
+.fiveday-box h2{
+    font-size: 1.5rem;
 }
