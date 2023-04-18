@@ -29,11 +29,11 @@ main{
 /*done*/
 .box {
     display: flex;
-    width: 75%;
+    width: 100%;
     height: 250px;
     border: 2px solid;
     padding: 3px;
-    margin: -225px 350px 400px;
+    margin: 25px 50px 400px;
 }
 
 .forecast-text {
@@ -50,7 +50,9 @@ main{
 .container {
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 400px;
+    margin-left: -800px;
 }
 
 /* .day-box1 {
@@ -84,10 +86,11 @@ main{
 } */
 
 .fiveday-box{
+    display: flex;
     border: 1px solid blue;
-    width: 15vw;
-    height: 35vh;
-    background-color: aquamarine;
+    flex-wrap: wrap;
+    /* width: 15vw;
+    height: 35vh; */
 }
 
 .fiveday-box h2{

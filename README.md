@@ -10,6 +10,6 @@ MIT License
 
 ## Screenshots
 
-
+![Alt text](screenshots/weatherboard.png)
 
 ## Link to deployed webpage
